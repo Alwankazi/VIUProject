@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title>Detecting</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+  <body onclick="startQuery()" >
+      <div >
+        <img src="{{ url_for('video_feed')}}">
+      </div>
+      <div>
+        <p id="transcript">
+      </div>
+      <div>
+        <a href="{{ url_for('add_person') }}">Add Person</a>    
+      </div>
+  </body>
+
+<script>
+
+    /***SPEECH DICTATION ****/
+document.getElementById('audio').play();
+
+function startQuery() {
+
+if (window.hasOwnProperty('webkitSpeechRecognition')) {
+    console.log("Starting");
+    var recognition = new webkitSpeechRecognition();
+
+    recognition.continuous = false;
+    recognition.interimResults = false;
+
+    recognition.lang = "en-US";
+    recognition.start();
+    recognition.onresult = function(e) {
+        var transcript = e.results[0][0].transcript;
+        recognition.stop();
+        document.getElementById('transcript').innerHTML = transcript;
+        $.ajax({
+            url: "/detection",
+            type: "POST",
+            data:  JSON.stringify({'message': transcript}),
+            contentType: 'application/json;charset=UTF-8',
+            success: function(response) {
+                var new_html = detection.html;
+            },
+            });  
+    };
+
+    recognition.onerror = function(e) {
+        recognition.stop();
+    }   
+}
+
+}
+
+</script>
+</html>

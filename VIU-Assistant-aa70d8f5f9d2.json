@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "viu-assistant-1588679865794",
+  "private_key_id": "aa70d8f5f9d2cbe685cf80ffd045cbb932799570",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDGpR5E49uumTZu\nhwRj1b+t/Vv52+Iu5GjTvpESpuG1UC2SJ3+TXxlSqafhWSekeGqqVyzHQcWVFGRN\nqw7oDwrD9hP11pCU1Rcu+lkbUIeKAqi5/Vs0zEOSF1MIrwcuItMWq9x/uORIGxBv\nBeCEl39W8BLjBl+uFx1JQeiowzEDu/JP62+KT/ExMZcGVK5SHmDw0FKlV6FejMOK\ny6tU90LJmRAYkdUS7FlLY1H0EGB7wYIzWPPC0xsg+/9/c1n0utqL6C0oFudt2fAH\nyu483Mj3F7Eur0PXWO+izkEwzbzfpOwfdxqhXqVQCyPzNo+SNaftZJEAHC6LLIjf\nGtLmfQSRAgMBAAECggEAAfKkSndkA/ElaR3Kj5qM1b1MYbWz4PMVKo9dr43CnJMn\n0T0xKW4nKsn2VxW3V2vlWtx+OEl3MSQpLCBLZf/gwoVnEnPrSMRSpP+oMEYAwDwQ\nsLsw4eKHXpc7NZR2yO9nO7uNbtSuq1zVk0se1ZoBMgZqXv7E4SmBnGJosD/yuvdA\nP+cUfx4wvGh2klfShaUgEVuguC2FE7yUd8f+FNPIS5meKAVqbxH4S+Ch479ZaNV3\nyWywGtBvGGYDwEewaRszO79Xuk01qfK9sl2ex4UaRMIUd7gebaMCA2w6DPyRKiua\noQqAEjIVB6Ge3t4X+sgpuIdBw6RHL4WEM2OUlYDQQQKBgQD9ojERdq7mQgIbAROB\nWDnMZFN7pg+4kv+lQdFzFP7sytdx7IJa/Dksqopt/OPcOT+qxL5jq3RLY8wMzfQt\nziPrlDYHrVtDJ6QyLUbBMuD7eFz5w7qw34RwIavQDBisQcDQDBQ9LXAhj+1u2geh\n07FYlDaNLtqFx+JWq5NlIRVBsQKBgQDIf5XbiGzdezs+jNdDmK7ED4Wfc+gmcI/G\njOokAUgcFGb8rcyrPiBt+Kpf2v5xXTJehV7Yl9P3l7Jz8gGPuWSnYdSD7y4vijgS\n9jnSp1XeLqsXGwxq1JmhJOquaCI07EMZrXPZvV6D3VYGkadLzuSDqEOou0eameD9\nG12ccjzI4QKBgDfjSl6nwUhZmS8sIIkq0KmaHc8sO2CXe5+FjkqGgNnapHik/eBg\nnZSbC5/KzsbTEpVlfvJlcF3AYtEbfMevGbkqUnGEoIx+qq6nzWR6+ppO3mXm3Ddn\nOT6gHMTeNX2Xi44Ma1VDsuaiWVZI0s+03uo+1nprrZk2/0fLzNHG5XExAoGBAL+C\nlpquMgZQOiOiFc/cXDqr9N98r+dfpwVo/hDMJJulpUV/oTqESieg2ORcYqPX+E+u\npwzN4Uri3DLBm1o0JH95A6vN31jLdoouJMcgzPU/sG6OiIrWbbQtdfiHQP06G1HA\niyMVLd1Yol397EWN5loXdCEMWfXDO9Onuv+/Ym4hAoGAPXVNi3QbQFnjssEKd79H\nPmPBPneEjP0T9oZ0MAl1EDIFXtp/9SLocO16ZnfwlqmrN/LL8rVnqYOvvnsIYz8v\neQp+qnODc3AYrcG8Q/LnNPzwc/Ap4+qyPKI2uj5wNH9LmDPzRF+M+uIiAkRQVNq5\n/jccLmjxp7olXlQOX27gVA4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "viu-assist@viu-assistant-1588679865794.iam.gserviceaccount.com",
+  "client_id": "106960664427559253021",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/viu-assist%40viu-assistant-1588679865794.iam.gserviceaccount.com"
+}

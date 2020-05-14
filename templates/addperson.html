@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Add Person</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+  <body>
+      <div >
+        <img src="{{ url_for('video_feed')}}">
+      </div>
+      <div >
+        <a href="{{ url_for('capture') }}"> Take Picture </a> 
+      </div>
+      <div>
+        <a href="{{ url_for('voicerecognition') }}">Go Back</a>    
+      </div>
+
+  </body>
+</html>

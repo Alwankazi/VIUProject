@@ -1,0 +1,1 @@
+Paste RASA trained model in this folder

@@ -1,0 +1,65 @@
+actions:
+- action_findColor
+- action_findCount
+- action_findObject
+- action_resetSlots
+- action_Date
+- action_Time
+- action_DateTime
+- action_News
+- action_Weather
+- action_RecognizePerson
+- action_Read
+- utter_assistance
+- utter_did_that_help
+- utter_goodbye
+- utter_greet
+- utter_happy
+- utter_moreAssistance
+entities:
+- Object
+- color
+- object
+intents:
+- greet
+- goodbye
+- object_count
+- object_color
+- deny
+- affirm
+- search_object
+- latest_news
+- reading_text
+- time
+- date
+- date_time
+- weather
+- person_recognize
+- stop
+responses:
+  utter_assistance:
+  - text: How can I assist you?
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_goodbye:
+  - text: Bye
+  utter_greet:
+  - text: Hey! How are you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_moreAssistance:
+  - text: Do you need further assistance?
+session_config:
+  carry_over_slots_to_new_session: true
+  session_expiration_time: 60
+slots:
+  color:
+    type: text
+  count:
+    max_value: 1.0
+    min_value: 0.0
+    type: float
+  location:
+    type: text
+  object:
+    type: text

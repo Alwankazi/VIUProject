@@ -16,7 +16,9 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="VIU-Assistant-aa70d8f5f9d2.json"
 
 
 app = Flask(__name__)
-vs = WebcamVideoStream(src=0).start()
+# path = "/home/akilan/Pictures/heriotwattlol.jpg"
+# vs =  cv2.imread(path)
+vs = cv2.VideoCapture(0)
 
 
 camera = None
@@ -33,7 +35,7 @@ try:
 except: 
     print("Can't connect to database") 
     # If Connection Is Successful 
-print("Connected")
+#print("Connected")
 cursor = db.cursor()
 
 
@@ -112,8 +114,15 @@ def index():
 
 def detection():
     while True:
-            #Reading Frame and Resizing 
-            imgIn = vs.read()
+            # Reading Frame and Resizing 
+            # imgIn = vs.read()
+            global vs
+            print(vs)
+            success, imgIn = vs.read()
+            print(imgIn)
+            ret, jpeg = cv2.imencode('.jpg', imgIn)
+            frame = jpeg.tobytes()
+
             img = imutils.resize(imgIn, width=600)
             (height, width) = img.shape[:2]
             # ratio = imgIn.shape[0] / float(img.shape[0])
@@ -147,7 +156,7 @@ def detection():
                 (newW, newH) = (416, 416)
                 rW = origW / float(newW)
                 rH = origH / float(newH)
-
+                print(orig)
                 (H, W) = img.shape[:2]
                 # decode the predictions, then  apply non-maxima suppression 
                 (rects, confidences) = decode_predictions(scores, geometry)
@@ -357,15 +366,14 @@ def detection():
                     face_encoding = face_recognition.face_encodings(face_image)[0]
                     #Array of encoded faces
                     known_face_encodings.append(face_encoding)
+
                 
                 face_locations = []
                 face_encodings = []
                 face_names = []
                 process_this_frame = True
-
                 # Resize frame size for faster face recognition processing
                 small_frame = cv2.resize(img, (0, 0), fx=0.25, fy=0.25)
-                
                 # Convert the image from BGR color space to RGB color space for face recognition
                 rgb_small_frame = small_frame[:, :, ::-1]
                 # Only process every other frame of video to save time
@@ -373,7 +381,6 @@ def detection():
                     # Find all the faces and face encodings in the current frame of video
                     face_locations = face_recognition.face_locations(rgb_small_frame)
                     face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
-
                     
                     face_names = []
                     

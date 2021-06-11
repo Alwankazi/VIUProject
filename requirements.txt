@@ -1,0 +1,11 @@
+flask 
+imutils==0.5.3
+numpy
+camera
+gTTS
+opencv-python
+SpeechRecognition
+face_recognition
+Flask-MySQLdb
+pytesseract
+google-cloud-texttospeech

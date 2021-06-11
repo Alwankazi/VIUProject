@@ -22,9 +22,9 @@ vs = WebcamVideoStream(src=0).start()
 camera = None
 
 #Database Connection
-hostname = "localhost"
-username = "root"
-password = "ArAl2799"
+hostname = "206.189.139.161"
+username = "lol"
+password = "lol"
 DBName = "VIU"
 
 try: 

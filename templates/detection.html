@@ -5,7 +5,7 @@
     </head>
   <body onclick="startQuery()" >
       <div >
-        <img src="{{ url_for('video_feed')}}">
+        <!-- <img src="{{ url_for('video_feed')}}"> -->
       </div>
       <div>
         <p id="transcript">
@@ -25,10 +25,10 @@ function startQuery() {
 if (window.hasOwnProperty('webkitSpeechRecognition')) {
     console.log("Starting");
     var recognition = new webkitSpeechRecognition();
-
+    console.log("Starting1");
     recognition.continuous = false;
     recognition.interimResults = false;
-
+    console.log("Startin2");
     recognition.lang = "en-US";
     recognition.start();
     recognition.onresult = function(e) {

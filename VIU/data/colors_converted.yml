@@ -1,0 +1,16 @@
+version: "2.0"
+nlu:
+- lookup: colors
+  examples: |
+    - red
+    - green
+    - black
+    - blue
+    - brown
+    - orange
+    - yellow
+    - green
+    - purple
+    - pink
+    - white
+    - gray

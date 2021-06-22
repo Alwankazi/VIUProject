@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/Users/alwankazi/opt/anaconda3/envs/AI/bin/python"
+    "python.pythonPath": "/Users/alwankazi/opt/anaconda3/envs/AI/bin/python",
+    "git.ignoreLimitWarning": true
 }

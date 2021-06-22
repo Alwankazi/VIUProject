@@ -4,24 +4,27 @@ from imutils.video import WebcamVideoStream
 from imutils.object_detection import non_max_suppression
 import numpy as np
 import speech_recognition as speechrecog
+from datetime import datetime
+import logging
+import base64 
 from gtts import gTTS
 import face_recognition
 from camera import Camera
 import os, glob, gc, requests, subprocess, cv2, MySQLdb, io, face_recognition, time, imutils, argparse , json, pytesseract
 from collections import deque
-
+from flask_socketio import SocketIO, emit
 import subprocess
 from google.cloud import texttospeech
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="VIU-Assistant-aa70d8f5f9d2.json"
 
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'secret!'
+socketio = SocketIO(app)
 # path = "/home/akilan/Pictures/heriotwattlol.jpg"
 # vs =  cv2.imread(path)
-# vs = cv2.VideoCapture(0)
 
-
-camera = None
+# camera = Camera()
 
 #Database Connection
 hostname = "206.189.139.161"
@@ -110,15 +113,72 @@ def decode_predictions(scores, geometry):
 #Video Streaming Page
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html',async_mode=socketio.async_mode)
 
-def detection():
+@socketio.on('connection_msg')
+def connected(message):
+    
+    data = message
+    print(data)
+
+@socketio.on('send_img')
+def main(message):
+    
+    # message contains the image from the client side and the type of ml service to use: 
+    # label detection or text extraction
+    data = np.array(list(message.values()))
+    
+    # The type of ml service to use - stored in image_analysis.
+    image_analysis = data[0][0]
+    
+    # The image to encode - from the client side
+    img_to_encode = data[0][1]
+    #print(img_to_encode)
+        
+    # Then split the list, and encode everything after the ',' and store in img_encoded
+    img_encoded = img_to_encode.split(',')[1].encode()
+    
+    
+    # Get Current Timestamp in ms - append timestamp to image name so we always save a new image
+    timestamp = datetime.now()
+    time_formatted = timestamp.strftime("%Y%m%d%H%M%S")
+    file_name = "pic_" + time_formatted + ".png"
+    
+    # folder to store the image
+    folder = 'static/img/'
+    uri = folder + file_name
+    
+    # Need to decode it using base64
+    with open(uri, "wb") as fh:
+        fh.write(base64.decodestring(img_encoded))
+        
+    # Determine which Google Vision API Service to use: 1) Label Image OR 2) Extract Text From Image
+    
+    # if image_analysis == 'label':
+        
+    #     print("Determining image...")
+    #     # From vision.py helper file
+    #     data = label_image(uri)
+    #     print(data)
+    
+    # else:
+    #     print("Getting ready to " + image_analysis)
+    #     # Access OCR API using the vision.py helper file.
+    #     data = extract_text(uri)
+    #     print(data)
+    
+    # Send data back to the client in the form of a label detected or text extracted.
+    # emit('my_response', {'data': data})
+    
+# def detection():
     while True:
             # Reading Frame and Resizing 
             # imgIn = vs.read()
-            global vs
-            print(vs)
-            success, imgIn = vs.read()
+
+            # vs = WebcamVideoStream(src=0).start()
+            # vs = camera.get_frame()
+            # print(vs)
+            imgIn = cv2.imread(uri)
             print(imgIn)
             ret, jpeg = cv2.imencode('.jpg', imgIn)
             frame = jpeg.tobytes()
@@ -442,7 +502,7 @@ def detection():
 @app.route('/video_feed')
 def video_feed():
     return Response(
-        detection(),
+        main(),
         mimetype='multipart/x-mixed-replace; boundary=img',
     )
 
@@ -473,21 +533,21 @@ def voicerecognition():
         client = texttospeech.TextToSpeechClient()
 
         # Set the text input to be synthesized
-        synthesis_input = texttospeech.SynthesisInput(text=bot_message)
+        synthesis_input = texttospeech.types.SynthesisInput(text=bot_message)
 
         # Build the voice request, select the language code ("en-US") and the ssml
         # voice gender ("neutral")
-        voice = texttospeech.VoiceSelectionParams(
+        voice = texttospeech.types.VoiceSelectionParams(
             language_code='en-US',
-            ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL)
+            ssml_gender=texttospeech.enums.SsmlVoiceGender.NEUTRAL)
 
         # Select the type of audio file you want returned
-        audio_config = texttospeech.AudioConfig(
-            audio_encoding=texttospeech.AudioEncoding.MP3)
+        audio_config = texttospeech.types.AudioConfig(
+            audio_encoding=texttospeech.enums.AudioEncoding.MP3)
 
         # Perform the text-to-speech request on the text input with the selected
         # voice parameters and audio file type
-        response = client.synthesize_speech(input=synthesis_input, voice=voice, audio_config=audio_config)
+        response = client.synthesize_speech(synthesis_input, voice, audio_config)
 
         # The response's audio_content is binary.
         with open('./static/response/output.mp3', 'wb') as out:
@@ -547,4 +607,5 @@ def show_capture(timestamp):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True, threaded=True)
+    socketio.run(app)
+    # app.run(host='0.0.0.0', debug=True, threaded=True)

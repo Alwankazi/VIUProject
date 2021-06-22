@@ -1,0 +1,500 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - Hi
+    - Hey
+    - Hi bot
+    - Hey bot
+    - Hello
+    - Good morning
+    - hi pal!
+    - hello friend
+    - hI
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - that is all, thank you
+    - nothing bye
+- intent: affirm
+  examples: |
+    - yes
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - No
+- intent: stop
+  examples: |
+    - ok then you cant help me
+    - you can't help me
+    - you can't help me with what i need
+    - i guess you can't help me then
+    - ok i guess you can't help me
+    - that's not what i want
+    - ok, but that doesnt help me
+    - this is leading to nothing
+    - this conversation is not really helpful
+    - you cannot help me with what I want
+    - I think you cant help me
+    - hm i don't think you can do what i want
+    - stop
+    - do you get anything?
+- intent: date
+  examples: |
+    - Can you please tell me today's date and time
+    - What is today's date
+    - Date
+    - Today's date
+    - What the date today?
+    - What is today's date?
+- intent: time
+  examples: |
+    - Can you tell me the time
+    - What is time
+    - time
+    - time right now
+    - What is time right now
+    - time now
+    - What's the time now
+- intent: date_time
+  examples: |
+    - Can you please tell me today's date and time
+    - Can you tell me today's date and time
+    - What is today's date and time
+    - Date and Time
+    - Today's date and time
+- intent: latest_news
+  examples: |
+    - Can you please tell me the latest news?
+    - latest news
+    - Can you please tell me the top headlines?
+    - top headlines of today
+    - What is happening around the world
+    - Give me latest information
+    - news
+    - give me latest news
+    - what is happening today
+    - top headlines for today
+    - Any news updates today
+    - tell me the news
+    - speak the news to me
+    - What is trending today
+- intent: weather
+  examples: |
+    - Can you please tell me the weather?
+    - Outside temprature
+    - What is the temprature today
+    - How is the weather outside
+    - How hot is it today
+    - how cold is it today
+    - Is it hot outside?
+    - Is it cold outside?
+    - Weather forcast please
+    - Weather forcast
+    - Tell me the weather update
+    - Temprature
+    - Is it freezing outside?
+    - Is it sunny?
+    - Is it raining outisde?
+    - Weahter updates
+    - Update me on the weahter
+    - Update me on today's weahter
+- intent: search_object
+  examples: |
+    - I'd like to find [red](color)[cup](object)
+    - Where is [banana](object)?
+    - Where is my [orange](color) [cup](object)?
+    - Where is my [red](color) [wallet](object)
+    - where is [yellow](color) [banana](object)
+    - where is my [mouse](object)
+    - where is the [wallet](object)
+    - where is the [toy](object)
+    - Where is the [pipe](object)
+    - Can you please tell me where is the [cell phone](object)
+    - Please help me locate [scissors](object)
+    - Help me to locate my [book](object)
+    - Where is my [blue](color) [book](object)
+    - where is [purple](color) [scissors](object)
+    - Please help me locate [gray](color) [scissors](object)
+    - Help me to locate my [brown](color) [book](object)
+- intent: object_color
+  examples: |
+    - What is the color of [scissors](object)
+    - Can you please tell me the color of this [book](object)
+    - Is this [book](object) [blue](color)?
+    - Tell me the color of this [cell phone](object)
+    - What color is this [book](object)
+    - Color of my [wallet](object)
+    - What is the color of it?
+    - What is the color?
+    - Whats their color
+- intent: person_recognize
+  examples: |
+    - Who is there?
+    - Who is in front of me?
+    - Who is that person?
+    - Who all are there?
+    - Who all are there in front of me?
+    - Who is this
+    - Who is around me
+    - around me
+    - person
+- intent: reading_text
+  examples: |
+    - What is written in front of me?
+    - Can you please read this for me?
+    - What is this document
+    - read
+    - read document
+    - read ahead
+    - read whats ahead of me
+    - Read this document
+    - Explain this document
+- intent: object_count
+  examples: |
+    - How many [brown](color) [book](object) are there?
+    - How many [book](object) are there?
+    - Can you help me find number of [blue](color) [wallet](object)
+    - Can you help me find number of [cup](object)
+    - Can you help me find count of [blue](color) [cup](object)
+    - Can you help me find count of [book](object)
+    - Tell me number of [cup](object)
+    - Tell me count of [cup](object)
+    - Tell me the number of [book](object)
+    - Tell me the count of [book](object)
+    - Tell me number of [brown](color) [book](object)
+    - Tell me count of [blue](color) [cup](object)
+    - Tell me the number of [red](color) [cup](object)
+    - Tell me the count of [green](color) [cup](object)
+    - How many [brown](color) [cows](object) are there?
+    - How many [elephants](object) are there?
+    - Can you help me find number of [blue](color) [wait sign](object)
+    - Can you help me find number of [mobiles](object)
+    - Can you help me find count of [blue](color) [bottles](object)
+    - Can you help me find count of [bags](object)
+    - Tell me number of [birds](object)
+    - Tell me count of [dogs](object)
+    - Tell me the number of [apples](object)
+    - Tell me the count of [ties](object)
+    - Tell me number of [brown](color) [zebras](object)
+    - Tell me count of [signals](object)
+    - Tell me the number of [red](color) [vehicals](object)
+    - Tell me the count of [green](color) [bikes](object)
+    - How many [bottles]{"entity": "object", "value": "bottle"} are there
+    - How many [people]{"entity": "object", "value": "person"} are there
+    - How many [white](color) cats are there
+    - How many [white](color) [cats]{"entity": "object", "value": "cat"} are there
+    - how many [people]{"entity": "object", "value": "person"} are there
+    - How many are [white](color)
+- synonym: bottle
+  examples: |
+    - bottles
+- synonym: person
+  examples: |
+    - people
+    - humans
+    - walkers
+- synonym: cat
+  examples: |
+    - cats
+- synonym: aeroplane
+  examples: |
+    - aeroplanes
+    - flights
+    - flight
+    - planes
+    - plane
+- synonym: apple
+  examples: |
+    - apples
+- synonym: backpack
+  examples: |
+    - backpacks
+    - bag
+    - bags
+- synonym: banana
+  examples: |
+    - bananas
+- synonym: baseball bat
+  examples: |
+    - baseball-bats
+- synonym: baseball glove
+  examples: |
+    - baseball-gloves
+- synonym: bear
+  examples: |
+    - bears
+- synonym: bed
+  examples: |
+    - beds
+- synonym: bench
+  examples: |
+    - benches
+- synonym: bicycle
+  examples: |
+    - bicycles
+    - cycles
+    - cycle
+- synonym: bird
+  examples: |
+    - birds
+- synonym: boat
+  examples: |
+    - boats
+- synonym: book
+  examples: |
+    - books
+- synonym: bowl
+  examples: |
+    - bowls
+    - pot
+- synonym: broccoli
+  examples: |
+    - broccolis
+- synonym: bus
+  examples: |
+    - buses
+- synonym: cake
+  examples: |
+    - cakes
+    - bownie
+    - bownies
+    - cupcake
+    - cupcakes
+- synonym: car
+  examples: |
+    - cars
+    - vehicals
+    - 4-wheelers
+    - vehical
+    - 4-wheeler
+- synonym: carrot
+  examples: |
+    - carrots
+- synonym: cell phone
+  examples: |
+    - cell phones
+    - mobiles
+    - mobile
+    - phone
+    - phones
+- synonym: chair
+  examples: |
+    - chairs
+- synonym: clock
+  examples: |
+    - clocks
+    - watches
+    - watch
+- synonym: cow
+  examples: |
+    - cows
+- synonym: cup
+  examples: |
+    - cups
+    - glasses
+- synonym: diningtable
+  examples: |
+    - diningtables
+- synonym: dog
+  examples: |
+    - dogs
+- synonym: donut
+  examples: |
+    - donuts
+- synonym: elephant
+  examples: |
+    - elephants
+- synonym: fire hydrant
+  examples: |
+    - fire hydrants
+- synonym: fork
+  examples: |
+    - forks
+- synonym: frisbee
+  examples: |
+    - frisbees
+- synonym: giraffe
+  examples: |
+    - giraffes
+- synonym: hair drier
+  examples: |
+    - hair-driers
+    - hair-drier
+    - hairdryer
+    - hairdryers
+- synonym: handbag
+  examples: |
+    - handbags
+- synonym: horse
+  examples: |
+    - horses
+- synonym: hot dog
+  examples: |
+    - hotdogs
+    - hotdog
+- synonym: keyboard
+  examples: |
+    - keyboards
+- synonym: kite
+  examples: |
+    - kites
+- synonym: knife
+  examples: |
+    - knifes
+- synonym: laptop
+  examples: |
+    - laptops
+- synonym: microwave
+  examples: |
+    - microwaves
+    - micro-wave
+    - micro-waves
+- synonym: motorbike
+  examples: |
+    - 2-wheelers
+    - bikes
+    - scootys
+    - motorbikes
+    - 2-wheeler
+    - bike
+    - scooty
+- synonym: orange
+  examples: |
+    - oranges
+- synonym: oven
+  examples: |
+    - ovens
+- synonym: parking meter
+  examples: |
+    - parking-meters
+    - paypark-meter
+    - paypark-meters
+- synonym: pizza
+  examples: |
+    - pizzas
+- synonym: pottedplant
+  examples: |
+    - pottedplants
+- synonym: refrigerator
+  examples: |
+    - refrigerators
+    - fridge
+    - fridges
+- synonym: remote
+  examples: |
+    - remotes
+- synonym: sandwich
+  examples: |
+    - sandwichs
+    - wrap
+    - wraps
+    - roll
+    - rolls
+- synonym: scissors
+  examples: |
+    - scissor
+- synonym: sheep
+  examples: |
+    - sheeps
+- synonym: sink
+  examples: |
+    - sinks
+- synonym: skateboard
+  examples: |
+    - skateboards
+- synonym: skis
+  examples: |
+    - ski
+- synonym: snowboard
+  examples: |
+    - snowboards
+    - snow-boards
+    - snow-board
+- synonym: sofa
+  examples: |
+    - sofas
+- synonym: spoon
+  examples: |
+    - spoons
+- synonym: sports ball
+  examples: |
+    - sports-balls
+    - sportsball
+- synonym: stop sign
+  examples: |
+    - stop-signs
+    - wait-signs
+    - stop-sign
+    - wait-sign
+- synonym: suitcase
+  examples: |
+    - suitcases
+    - luggage
+    - luggages
+    - baggage
+    - baggages
+- synonym: surfboard
+  examples: |
+    - surfboards
+- synonym: teddy bear
+  examples: |
+    - teddy-bears
+    - teddys
+- synonym: tennis racket
+  examples: |
+    - tennis-rackets
+    - tennis-bat
+    - tennis-bats
+- synonym: tie
+  examples: |
+    - ties
+- synonym: toaster
+  examples: |
+    - toasters
+- synonym: toilet
+  examples: |
+    - toilets
+    - loo
+    - washroom
+- synonym: toothbrush
+  examples: |
+    - toothbrushes
+    - tooth-brushes
+- synonym: traffic light
+  examples: |
+    - traffic-lights
+    - trafficlight
+    - signals
+    - signal
+- synonym: train
+  examples: |
+    - trains
+- synonym: truck
+  examples: |
+    - trucks
+- synonym: tvmonitor
+  examples: |
+    - tvmonitors
+    - tv
+    - tv's
+    - television
+- synonym: umbrella
+  examples: |
+    - umbreallas
+- synonym: wine glass
+  examples: |
+    - wine glasses
+- synonym: zebra
+  examples: |
+    - zebras

@@ -1,0 +1,792 @@
+version: "2.0"
+stories:
+- story: A_path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_assistance
+  - intent: search_object
+  - action: action_findObject
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+  - action: utter_moreAssistance
+  - intent: reading_text
+  - action: action_Read
+  - action: utter_moreAssistance
+  - intent: goodbye
+  - action: utter_goodbye
+- story: B_path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_assistance
+  - intent: search_object
+    entities:
+    - color: red
+    - object: cup
+  - slot_was_set:
+    - color: red
+  - slot_was_set:
+    - object: cup
+  - action: action_findObject
+  - slot_was_set:
+    - location:
+      - center
+  - action: utter_did_that_help
+  - action: action_resetSlots
+  - slot_was_set:
+    - location:
+      - None
+  - slot_was_set:
+    - color:
+      - None
+  - slot_was_set:
+    - object:
+      - None
+  - slot_was_set:
+    - count:
+      - 0
+  - intent: deny
+  - action: utter_assistance
+  - intent: search_object
+  - action: action_findObject
+  - action: utter_did_that_help
+  - intent: goodbye
+  - action: utter_goodbye
+- story: C_path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_assistance
+  - intent: reading_text
+  - action: action_Read
+  - action: utter_moreAssistance
+  - intent: search_object
+    entities:
+    - color: red
+    - object: cup
+  - slot_was_set:
+    - color: red
+  - slot_was_set:
+    - object: cup
+  - action: action_findObject
+  - slot_was_set:
+    - location:
+      - center
+  - action: utter_did_that_help
+  - action: action_resetSlots
+  - slot_was_set:
+    - location:
+      - None
+  - slot_was_set:
+    - color:
+      - None
+  - slot_was_set:
+    - object:
+      - None
+  - slot_was_set:
+    - count:
+      - 0
+  - intent: search_object
+    entities:
+    - color: yellow
+    - object: banana
+  - slot_was_set:
+    - color: yellow
+  - slot_was_set:
+    - object: banana
+  - action: action_findObject
+  - slot_was_set:
+    - location:
+      - left
+  - action: utter_moreAssistance
+  - action: action_resetSlots
+  - slot_was_set:
+    - location:
+      - None
+  - slot_was_set:
+    - color:
+      - None
+  - slot_was_set:
+    - object:
+      - None
+  - slot_was_set:
+    - count:
+      - 0
+  - intent: date_time
+  - action: action_DateTime
+  - action: utter_moreAssistance
+  - intent: reading_text
+  - action: action_Read
+  - action: utter_moreAssistance
+  - intent: search_object
+    entities:
+    - object: banana
+  - slot_was_set:
+    - object: banana
+  - action: action_findObject
+  - slot_was_set:
+    - location:
+      - left
+  - action: utter_did_that_help
+  - action: action_resetSlots
+  - slot_was_set:
+    - location:
+      - None
+  - slot_was_set:
+    - color:
+      - None
+  - slot_was_set:
+    - object:
+      - None
+  - slot_was_set:
+    - count:
+      - 0
+  - intent: search_object
+    entities:
+    - object: banana
+  - slot_was_set:
+    - object: banana
+  - action: action_findObject
+  - slot_was_set:
+    - location:
+      - left
+  - action: utter_did_that_help
+  - action: action_resetSlots
+  - slot_was_set:
+    - location:
+      - None
+  - slot_was_set:
+    - color:
+      - None
+  - slot_was_set:
+    - object:
+      - None
+  - slot_was_set:
+    - count:
+      - 0
+  - intent: deny
+  - action: utter_assistance
+  - intent: goodbye
+  - action: utter_goodbye
+- story: D_path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_assistance
+  - intent: search_object
+    entities:
+    - object: banana
+  - slot_was_set:
+    - object: banana
+  - action: action_findObject
+  - slot_was_set:
+    - location:
+      - top left
+  - action: utter_did_that_help
+  - action: action_resetSlots
+  - slot_was_set:
+    - location:
+      - None
+  - slot_was_set:
+    - color:
+      - None
+  - slot_was_set:
+    - object:
+      - None
+  - slot_was_set:
+    - count:
+      - 0
+  - intent: search_object
+    entities:
+    - object: cup
+  - slot_was_set:
+    - object: cup
+  - action: action_findObject
+  - slot_was_set:
+    - location:
+      - left
+  - action: utter_moreAssistance
+  - action: action_resetSlots
+  - slot_was_set:
+    - location:
+      - None
+  - slot_was_set:
+    - color:
+      - None
+  - slot_was_set:
+    - object:
+      - None
+  - slot_was_set:
+    - count:
+      - 0
+  - intent: search_object
+    entities:
+    - color: red
+    - object: cup
+  - slot_was_set:
+    - object: cup
+  - action: action_findObject
+  - slot_was_set:
+    - location:
+      - right
+  - action: action_resetSlots
+  - slot_was_set:
+    - location:
+      - None
+  - slot_was_set:
+    - color:
+      - None
+  - slot_was_set:
+    - object:
+      - None
+  - slot_was_set:
+    - count:
+      - 0
+  - action: utter_goodbye
+  - intent: weather
+  - action: action_Weather
+  - action: utter_moreAssistance
+  - intent: search_object
+    entities:
+    - object: banana
+  - slot_was_set:
+    - object: banana
+  - action: action_findObject
+  - slot_was_set:
+    - location:
+      - bottom left
+  - action: action_resetSlots
+  - slot_was_set:
+    - location:
+      - None
+  - slot_was_set:
+    - color:
+      - None
+  - slot_was_set:
+    - object:
+      - None
+  - slot_was_set:
+    - count:
+      - 0
+  - intent: deny
+  - action: utter_assistance
+  - intent: goodbye
+  - action: utter_goodbye
+- story: Color_path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_assistance
+  - intent: weather
+  - action: action_Weather
+  - action: utter_moreAssistance
+  - intent: person_recognize
+  - action: action_RecognizePerson
+  - action: utter_moreAssistance
+  - intent: search_object
+    entities:
+    - object: cup
+  - slot_was_set:
+    - object: cup
+  - action: action_findObject
+  - slot_was_set:
+    - location:
+      - center
+  - action: utter_did_that_help
+  - intent: object_color
+    entities:
+    - object: cup
+  - slot_was_set:
+    - object: cup
+  - action: action_findColor
+  - slot_was_set:
+    - color:
+      - blue
+  - action: utter_assistance
+  - action: action_resetSlots
+  - slot_was_set:
+    - location:
+      - None
+  - slot_was_set:
+    - color:
+      - None
+  - slot_was_set:
+    - object:
+      - None
+  - slot_was_set:
+    - count:
+      - 0
+  - intent: deny
+  - action: utter_assistance
+  - intent: search_object
+  - action: action_findObject
+  - action: utter_did_that_help
+  - action: utter_moreAssistance
+  - intent: object_color
+  - action: action_findColor
+  - action: utter_moreAssistance
+  - intent: reading_text
+  - action: action_Read
+  - action: utter_moreAssistance
+  - intent: goodbye
+  - action: utter_goodbye
+- story: E_path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_assistance
+  - intent: object_color
+    entities:
+    - object: cup
+  - slot_was_set:
+    - object: cup
+  - action: action_findColor
+  - slot_was_set:
+    - color:
+      - blue
+  - action: utter_moreAssistance
+  - action: action_resetSlots
+  - slot_was_set:
+    - location:
+      - None
+  - slot_was_set:
+    - color:
+      - None
+  - slot_was_set:
+    - object:
+      - None
+  - slot_was_set:
+    - count:
+      - 0
+  - intent: search_object
+    entities:
+    - object: banana
+  - slot_was_set:
+    - object: banana
+  - action: action_findObject
+  - slot_was_set:
+    - location:
+      - left
+  - action: utter_did_that_help
+  - action: action_resetSlots
+  - slot_was_set:
+    - location:
+      - None
+  - slot_was_set:
+    - color:
+      - None
+  - slot_was_set:
+    - object:
+      - None
+  - slot_was_set:
+    - count:
+      - 0
+  - intent: date
+  - action: action_Date
+  - action: utter_moreAssistance
+  - intent: reading_text
+  - action: action_Read
+  - action: utter_moreAssistance
+  - intent: person_recognize
+  - action: action_RecognizePerson
+  - action: utter_moreAssistance
+  - intent: object_color
+    entities:
+    - object: banana
+  - slot_was_set:
+    - object: banana
+  - action: action_findColor
+  - slot_was_set:
+    - color:
+      - green
+  - action: utter_did_that_help
+  - action: action_resetSlots
+  - slot_was_set:
+    - location:
+      - None
+  - slot_was_set:
+    - color:
+      - None
+  - slot_was_set:
+    - object:
+      - None
+  - slot_was_set:
+    - count:
+      - 0
+  - intent: deny
+  - action: utter_assistance
+  - intent: goodbye
+  - action: utter_goodbye
+- story: Count_path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_assistance
+  - intent: date
+  - action: action_Date
+  - action: utter_moreAssistance
+  - intent: person_recognize
+  - action: action_RecognizePerson
+  - action: utter_moreAssistance
+  - intent: reading_text
+  - action: action_Read
+  - action: utter_moreAssistance
+  - intent: search_object
+    entities:
+    - object: cup
+  - slot_was_set:
+    - object: cup
+  - action: action_findObject
+  - slot_was_set:
+    - location:
+      - center
+  - action: utter_did_that_help
+  - intent: object_color
+    entities:
+    - object: cup
+  - slot_was_set:
+    - object: cup
+  - action: action_findColor
+  - slot_was_set:
+    - color:
+      - blue
+  - action: utter_moreAssistance
+  - intent: object_count
+    entities:
+    - object: cup
+    - color: blue
+  - slot_was_set:
+    - object: cup
+  - action: action_findCount
+  - slot_was_set:
+    - count:
+      - 3
+  - action: utter_moreAssistance
+  - action: action_resetSlots
+  - slot_was_set:
+    - location:
+      - None
+  - slot_was_set:
+    - color:
+      - None
+  - slot_was_set:
+    - object:
+      - None
+  - slot_was_set:
+    - count:
+      - 0
+  - intent: deny
+  - action: utter_assistance
+  - intent: goodbye
+  - action: utter_goodbye
+- story: F_path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_assistance
+  - intent: object_count
+    entities:
+    - object: cup
+  - slot_was_set:
+    - object: cup
+  - action: action_findCount
+  - slot_was_set:
+    - count:
+      - 2
+  - action: utter_moreAssistance
+  - action: action_resetSlots
+  - slot_was_set:
+    - location:
+      - None
+  - slot_was_set:
+    - color:
+      - None
+  - slot_was_set:
+    - object:
+      - None
+  - slot_was_set:
+    - count:
+      - 0
+  - intent: search_object
+    entities:
+    - object: banana
+  - slot_was_set:
+    - object: banana
+  - action: action_findObject
+  - slot_was_set:
+    - location:
+      - left
+  - action: utter_did_that_help
+  - intent: reading_text
+  - action: action_Read
+  - action: utter_moreAssistance
+  - intent: object_color
+    entities:
+    - object: banana
+  - slot_was_set:
+    - object: banana
+  - action: action_findColor
+  - slot_was_set:
+    - color:
+      - yellow
+  - action: utter_did_that_help
+  - action: utter_moreAssistance
+  - intent: person_recognize
+  - action: action_RecognizePerson
+  - action: utter_moreAssistance
+  - intent: latest_news
+  - action: action_News
+  - action: utter_moreAssistance
+  - intent: reading_text
+  - action: action_Read
+  - action: utter_moreAssistance
+  - intent: object_count
+    entities:
+    - object: banana
+  - slot_was_set:
+    - object: banana
+  - action: action_findCount
+  - slot_was_set:
+    - count:
+      - 2
+  - action: utter_moreAssistance
+  - action: action_resetSlots
+  - slot_was_set:
+    - location:
+      - None
+  - slot_was_set:
+    - color:
+      - None
+  - slot_was_set:
+    - object:
+      - None
+  - slot_was_set:
+    - count:
+      - 0
+  - intent: deny
+  - action: utter_assistance
+  - intent: goodbye
+  - action: utter_goodbye
+- story: G_path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_assistance
+  - intent: object_count
+    entities:
+    - object: bottle
+  - slot_was_set:
+    - object: bottle
+  - action: action_findCount
+  - action: utter_moreAssistance
+  - action: action_resetSlots
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - count: null
+  - slot_was_set:
+    - object: null
+  - slot_was_set:
+    - color: null
+  - intent: person_recognize
+  - action: action_RecognizePerson
+  - action: utter_moreAssistance
+  - intent: reading_text
+  - action: action_Read
+  - action: utter_moreAssistance
+  - intent: object_count
+    entities:
+    - object: bottle
+  - slot_was_set:
+    - object: bottle
+  - action: action_findCount
+  - slot_was_set:
+    - count: 0
+  - action: utter_moreAssistance
+  - action: action_resetSlots
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - count: null
+  - slot_was_set:
+    - object: null
+  - slot_was_set:
+    - color: null
+  - intent: person_recognize
+  - action: action_RecognizePerson
+  - action: utter_moreAssistance
+  - intent: object_count
+    entities:
+    - object: person
+  - slot_was_set:
+    - object: person
+  - action: action_findCount
+  - slot_was_set:
+    - count: 4
+  - action: utter_moreAssistance
+  - action: action_findObject
+  - slot_was_set:
+    - location: Left
+  - action: utter_did_that_help
+  - intent: object_color
+  - action: action_findColor
+  - slot_was_set:
+    - color: pink
+  - action: utter_assistance
+  - action: action_resetSlots
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - count: null
+  - slot_was_set:
+    - object: null
+  - slot_was_set:
+    - color: null
+  - intent: reading_text
+  - action: action_Read
+  - action: utter_moreAssistance
+  - intent: object_count
+    entities:
+    - color: white
+  - slot_was_set:
+    - color: white
+  - action: action_findCount
+  - action: utter_assistance
+  - action: action_resetSlots
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - count: null
+  - slot_was_set:
+    - object: null
+  - slot_was_set:
+    - color: null
+  - intent: object_count
+    entities:
+    - color: white
+    - object: cat
+  - slot_was_set:
+    - color: white
+  - slot_was_set:
+    - object: cat
+  - action: action_findCount
+  - slot_was_set:
+    - count: 1
+  - action: utter_assistance
+  - action: action_resetSlots
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - count: null
+  - slot_was_set:
+    - object: null
+  - slot_was_set:
+    - color: null
+  - intent: person_recognize
+  - action: action_RecognizePerson
+  - action: utter_moreAssistance
+  - intent: latest_news
+  - action: action_News
+  - action: utter_moreAssistance
+  - intent: object_count
+    entities:
+    - color: white
+  - slot_was_set:
+    - color: white
+  - action: action_findCount
+  - slot_was_set:
+    - count: 3
+  - action: utter_moreAssistance
+  - action: action_resetSlots
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - count: null
+  - slot_was_set:
+    - object: null
+  - slot_was_set:
+    - color: null
+  - intent: goodbye
+  - action: utter_goodbye
+- story: H_path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_assistance
+  - intent: object_count
+    entities:
+    - object: bottle
+  - slot_was_set:
+    - object: bottle
+  - action: action_findCount
+  - action: utter_moreAssistance
+  - action: action_resetSlots
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - count: null
+  - slot_was_set:
+    - object: null
+  - slot_was_set:
+    - color: null
+  - intent: date
+  - action: action_Date
+  - action: utter_moreAssistance
+  - intent: object_count
+    entities:
+    - object: person
+  - slot_was_set:
+    - object: person
+  - action: action_findCount
+  - slot_was_set:
+    - count: 4
+  - action: utter_moreAssistance
+  - action: action_findObject
+  - slot_was_set:
+    - location: Left
+  - action: utter_did_that_help
+  - intent: time
+  - action: action_Time
+  - action: utter_moreAssistance
+  - intent: reading_text
+  - action: action_Read
+  - action: utter_moreAssistance
+  - intent: object_count
+    entities:
+    - color: white
+  - slot_was_set:
+    - color: white
+  - action: action_findCount
+  - action: utter_moreAssistance
+  - action: action_resetSlots
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - count: null
+  - slot_was_set:
+    - object: null
+  - slot_was_set:
+    - color: null
+  - intent: date_time
+  - action: action_DateTime
+  - action: utter_moreAssistance
+  - intent: object_count
+    entities:
+    - object: person
+  - slot_was_set:
+    - object: person
+  - action: action_findCount
+  - slot_was_set:
+    - count: 4
+  - action: utter_moreAssistance
+  - action: action_findObject
+  - slot_was_set:
+    - location: Left
+  - action: utter_did_that_help
+  - intent: weather
+  - action: action_Weather
+  - action: utter_moreAssistance
+  - intent: goodbye
+  - action: utter_goodbye
